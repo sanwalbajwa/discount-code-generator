@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discount Code Generator - Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="admin-generator">
+    <h1>Discount Code Generator</h1>
+    
+    <div class="admin-panel">
+      <h2>Generate Discount Codes</h2>
+      
+      <form id="generate-form">
+        <div class="form-group">
+          <label for="quantity">Number of Codes to Generate:</label>
+          <input type="number" id="quantity" min="1" value="100" required>
+        </div>
+        
+        <h3>Discount Tiers</h3>
+        <p>Set up tiers with different discount values and probabilities. Probabilities must add up to 100%.</p>
+        
+        <div class="tier-table">
+          <div class="tier-row">
+            <div class="tier-label">Tier 1:</div>
+            <div class="tier-input">
+              <label for="tier1-discount">Discount %:</label>
+              <input type="number" id="tier1-discount" class="discount-value" min="1" max="100" value="10" required>
+            </div>
+            <div class="tier-input">
+              <label for="tier1-probability">Probability %:</label>
+              <input type="number" id="tier1-probability" class="probability" min="1" max="100" value="10" required>
+            </div>
+          </div>
+          
+          <div class="tier-row">
+            <div class="tier-label">Tier 2:</div>
+            <div class="tier-input">
+              <label for="tier2-discount">Discount %:</label>
+              <input type="number" id="tier2-discount" class="discount-value" min="1" max="100" value="25" required>
+            </div>
+            <div class="tier-input">
+              <label for="tier2-probability">Probability %:</label>
+              <input type="number" id="tier2-probability" class="probability" min="1" max="100" value="10" required>
+            </div>
+          </div>
+          
+          <div class="tier-row">
+            <div class="tier-label">Tier 3:</div>
+            <div class="tier-input">
+              <label for="tier3-discount">Discount %:</label>
+              <input type="number" id="tier3-discount" class="discount-value" min="1" max="100" value="15" required>
+            </div>
+            <div class="tier-input">
+              <label for="tier3-probability">Probability %:</label>
+              <input type="number" id="tier3-probability" class="probability" min="1" max="100" value="20" required>
+            </div>
+          </div>
+          
+          <div class="tier-row">
+            <div class="tier-label">Tier 4:</div>
+            <div class="tier-input">
+              <label for="tier4-discount">Discount %:</label>
+              <input type="number" id="tier4-discount" class="discount-value" min="1" max="100" value="5" required>
+            </div>
+            <div class="tier-input">
+              <label for="tier4-probability">Probability %:</label>
+              <input type="number" id="tier4-probability" class="probability" min="1" max="100" value="60" required>
+            </div>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn">Generate Codes</button>
+      </form>
+    </div>
+    
+    <div class="results-panel" style="display: none;">
+      <h2>Generated Discount Codes</h2>
+      <p>These codes have been stored in the system.</p>
+      
+      <button id="export-button" class="btn">Export to CSV</button>
+      
+      <div class="table-container">
+        <table id="codes-table">
+          <thead>
+            <tr>
+              <th>Scratch Card Code</th>
+              <th>Discount Code</th>
+              <th>Discount Value</th>
+              <th>Tier</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Generated codes will appear here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
